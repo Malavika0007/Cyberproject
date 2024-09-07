@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesdemo.css">
+  <script src="scriptsupload1.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLNG3Cd6hxyJdzNnt5rq1Je1O3gjUegYENcA&s">
+  <title>Threat Intelligence - Upload File</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">💻Threat Intelligence</div>
+      <input type="checkbox" name="check" id="check">
+      <label for="check" id="checkbtn"><i class="bi bi-list"></i></label>
+      <ul class="menu-items">
+        <li><a href="indexdemo.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="uploaddemo.html">Upload File</a></li>
+        <li><a href="more.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="services">
+    <div class="content">
+      <p>Upload your File</p>
+      <h2>Select your File based on time period</h2>
+      <div class="cards">
+        <div class="card card-android">
+          <div class="card-body">
+            <h2>GREEN</h2>
+            <button class="mallu" onclick="document.getElementById('fileUploadGreen').click()">Select File</button>
+            <span id="fileNameGreen"></span>
+            <input type="file" id="fileUploadGreen" style="display: none;" onchange="showFileName('fileUploadGreen', 'fileNameGreen')">
+            <button class="mallu" onclick="uploadFile('fileUploadGreen', 'fileContentsGreen', 'GREENDB')">Upload Now</button>
+            <div id="fileContentsGreen"></div>
+            <button class="mallu" onclick="toggleFileInput('fileUploadGreen')">See Matches</button>
+            <input type="file" id="fileUploadGreenMatches" style="display: none;" onchange="showFileName('fileUploadGreenMatches', 'fileNameGreenMatches')">
+            <button class="mallu" onclick="viewMatches('fileUploadGreenMatches', 'GREENDB')">View Matches</button>
+          </div>
+        </div>
+        <div class="card card-website">
+          <div class="card-body">
+            <h2>RED</h2>
+            <button class="mallu" onclick="document.getElementById('fileUploadRed').click()">Select File</button>
+            <span id="fileNameRed"></span>
+            <input type="file" id="fileUploadRed" style="display: none;" onchange="showFileName('fileUploadRed', 'fileNameRed')">
+            <button class="mallu" onclick="uploadFile('fileUploadRed', 'fileContentsRed', 'REDDB')">Upload Now</button>
+            <div id="fileContentsRed"></div>
+            <button class="mallu" onclick="toggleFileInput('fileUploadRed')">See Matches</button>
+            <input type="file" id="fileUploadRedMatches" style="display: none;" onchange="showFileName('fileUploadRedMatches', 'fileNameRedMatches')">
+            <button class="mallu" onclick="viewMatches('fileUploadRedMatches', 'REDDB')">View Matches</button>
+          </div>
+        </div>
+        <div class="card card-others">
+          <div class="card-body">
+            <h2>AMBER</h2>
+            <button class="mallu" onclick="document.getElementById('fileUploadAmber').click()">Select File</button>
+            <span id="fileNameAmber"></span>
+            <input type="file" id="fileUploadAmber" style="display: none;" onchange="showFileName('fileUploadAmber', 'fileNameAmber')">
+            <button class="mallu" onclick="uploadFile('fileUploadAmber', 'fileContentsAmber', 'AMBERDB')">Upload Now</button>
+            <div id="fileContentsAmber"></div>
+            <button class="mallu" onclick="toggleFileInput('fileUploadAmber')">See Matches</button>
+            <input type="file" id="fileUploadAmberMatches" style="display: none;" onchange="showFileName('fileUploadAmberMatches', 'fileNameAmberMatches')">
+            <button class="mallu" onclick="viewMatches('fileUploadAmberMatches', 'AMBERDB')">View Matches</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Single Upload File button at the bottom
+  <button class="mallu" onclick="redirectToUploadPage()">Upload File</button> -->
+
+</body>
+</html>

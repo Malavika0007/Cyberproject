@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylesdemo.css" />
+  <script src="scriptdemo.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+  />
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLNG3Cd6hxyJdzNnt5rq1Je1O3gjUegYENcA&s" />
+  <title>Threat Intelligence</title>
+  <style>
+    /* Your existing CSS styles */
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #edf5e0;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header .navbar {
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 26px;
+    }
+
+    header .navbar .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0f67b1;
+    }
+
+    header .navbar #check {
+      display: none;
+    }
+
+    header .navbar #check:checked ~ .menu-items {
+      left: 0;
+    }
+
+    header .navbar #checkbtn {
+      font-size: 33px;
+      display: none;
+    }
+
+    header .navbar .menu-items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s all ease-in-out;
+    }
+
+    header .navbar .menu-items li {
+      list-style: none;
+      padding: 0 20px;
+    }
+
+    header .navbar .menu-items li a {
+      text-decoration-line: none;
+      font-size: 18px;
+      color: #0f67b1;
+      text-transform: uppercase;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 760px) {
+      header .navbar {
+        text-align: center;
+        background: #ffffff;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+      }
+      header .navbar #checkbtn {
+        display: block;
+      }
+      header .navbar .menu-items {
+        position: absolute;
+        background: #ffffff;
+        flex-direction: column;
+        display: block;
+        top: 70px; /* Adjust to match your header height */
+        left: -100%;
+        height: max-content;
+        width: 100%;
+      }
+      header .navbar .menu-items li {
+        padding: 25px;
+      }
+      header .navbar .menu-items li a {
+        color: #0f67b1;
+      }
+    }
+
+    /* Other Section Styles */
+    #hero {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+      height: 550px;
+    }
+
+    #hero .text {
+      font-size: 18px;
+      padding: 18px;
+    }
+
+    #hero .text h1 {
+      font-size: 55px;
+      color: #0f67b1;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    #hero .text button {
+      padding: 8px;
+      width: 40%;
+      border-radius: 40px;
+      border: none;
+      outline: none;
+      background: #0f67b1;
+      color: #ffffff;
+    }
+
+    #features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+
+    #features .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      margin: 40px 0;
+    }
+
+    #features .cards .card {
+      display: flex;
+      flex-direction: column; /* Changed to column */
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-align: center;
+      background-color: #fff;
+      color: #1f3569;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #features .cards .card:hover {
+      background-color: #f0f0f0;
+    }
+
+    #features .cards .card i {
+      font-size: 40px;
+    }
+
+    #features .cards .card-content {
+      display: none;
+      padding: 10px;
+      margin-top: 10px; /* Add margin to separate from h3 */
+    }
+
+    #features .cards .card.active .card-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">💻 Threat Intelligence</div>
+      <input type="checkbox" name="check" id="check" />
+      <label for="check" id="checkbtn"><i class="bi bi-list"></i></label>
+      <ul class="menu-items">
+        <li><a href="indexdemo.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="uploaddemo.html">Upload File</a></li>
+        <li><a href="more.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="features">
+    <div class="content">
+      <p>About Us</p>
+      <h2>Glance of our workflow</h2>
+    </div>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>1. Packet Capture and Storage</h3>
+        <div class="card-content">
+          <p>The workflow starts by capturing real-time network traffic packets using monitoring tools. Each packet’s details, like IP addresses and timestamps,
+             are extracted and updated into an SQL database after filtering out obvious benign traffic.</p>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>2. Malicious Packet Identification</h3>
+        <div class="card-content">
+          <p>Next, the stored packet data is analyzed for potential threats using predefined signatures, threat intelligence feeds, and anomaly detection through machine learning.
+             Packets are then classified as malicious or non-malicious based on the results.</p>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>3. Data Classification and Storages</h3>
+        <div class="card-content">
+          <p>The packet data is organized by storage duration and risk level.
+             It’s classified into categories: red, amber , and green , and stored in corresponding SQL database tables with retention policies.</p>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>4. User Interaction and Data Retrieval</h3>
+        <div class="card-content">
+          <p>Users upload files via a secure web interface to query the database. The system processes these files and filters out non-malicious
+             data based on user-defined time periods and risk levels, displaying the results on an intuitive dashboard.</p>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>5. Data Presentation and User Feedback</h3>
+        <div class="card-content">
+          <p>Filtered data is presented to the user through a dashboard, highlighting risk levels and providing detailed views. Users can download data in various
+             formats and provide feedback to help improve the system’s accuracy and reliability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
